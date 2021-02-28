@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Start View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="StartViewController" customModule="Google_Map" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" text="" translatesAutoresizingMaskIntoConstraints="NO" id="48u-jN-vQs">
+                                <rect key="frame" x="0.0" y="44" width="414" height="56"/>
+                                <color key="barTintColor" systemColor="systemGray5Color"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="searchTextField.backgroundColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </searchBar>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="48u-jN-vQs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Smf-Gs-P4u"/>
+                            <constraint firstItem="48u-jN-vQs" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="ik1-o0-lqI"/>
+                            <constraint firstItem="48u-jN-vQs" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="woe-qY-ALZ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="searchBar" destination="48u-jN-vQs" id="jBZ-CX-X70"/>
+                        <segue destination="V22-RZ-c6K" kind="presentation" identifier="ToPlaceViewController" id="V3v-va-Cqk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="139" y="57"/>
+        </scene>
+        <!--Place View Controller-->
+        <scene sceneID="iPM-HY-IhQ">
+            <objects>
+                <viewController id="V22-RZ-c6K" customClass="PlaceViewController" customModule="Google_Map" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="aZZ-Qy-20e">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oiQ-dU-q5l">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="98"/>
+                                <subviews>
+                                    <searchBar contentMode="redraw" horizontalHuggingPriority="249" placeholder="Search Place" translatesAutoresizingMaskIntoConstraints="NO" id="pCP-CQ-Vcc">
+                                        <rect key="frame" x="0.0" y="42" width="367.5" height="56"/>
+                                        <color key="backgroundColor" white="0.2267212149" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="barTintColor" systemColor="placeholderTextColor"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="V22-RZ-c6K" id="Wh2-1X-RWV"/>
+                                        </connections>
+                                    </searchBar>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dMN-NV-qIR">
+                                        <rect key="frame" x="371.5" y="42" width="34.5" height="56"/>
+                                        <color key="tintColor" systemColor="systemYellowColor"/>
+                                        <state key="normal" image="star.fill" catalog="system">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="21" scale="large" weight="semibold"/>
+                                        </state>
+                                        <state key="selected" image="magnifyingglass" catalog="system"/>
+                                        <connections>
+                                            <action selector="toggleButton:" destination="V22-RZ-c6K" eventType="touchUpInside" id="CfP-5z-3sq"/>
+                                        </connections>
+                                    </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7jm-xG-5Jf">
+                                        <rect key="frame" x="129" y="16" width="156" height="10"/>
+                                        <color key="backgroundColor" systemColor="systemGray2Color"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="10" id="iuf-tN-6id"/>
+                                            <constraint firstAttribute="width" constant="156" id="ySe-eh-o0J"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.22672121492150712" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="7jm-xG-5Jf" firstAttribute="top" secondItem="oiQ-dU-q5l" secondAttribute="top" constant="16" id="3PO-Qk-bxu"/>
+                                    <constraint firstAttribute="bottom" secondItem="pCP-CQ-Vcc" secondAttribute="bottom" id="5bl-cn-FVN"/>
+                                    <constraint firstItem="pCP-CQ-Vcc" firstAttribute="top" secondItem="7jm-xG-5Jf" secondAttribute="bottom" constant="16" id="GQc-4a-Iph"/>
+                                    <constraint firstItem="dMN-NV-qIR" firstAttribute="leading" secondItem="pCP-CQ-Vcc" secondAttribute="trailing" constant="4" id="Idg-XG-Me9"/>
+                                    <constraint firstItem="dMN-NV-qIR" firstAttribute="bottom" secondItem="pCP-CQ-Vcc" secondAttribute="bottom" id="Ig6-li-ndT"/>
+                                    <constraint firstAttribute="trailing" secondItem="dMN-NV-qIR" secondAttribute="trailing" constant="8" id="cxY-nx-NUu"/>
+                                    <constraint firstItem="pCP-CQ-Vcc" firstAttribute="leading" secondItem="oiQ-dU-q5l" secondAttribute="leading" id="rdb-E7-y3L"/>
+                                    <constraint firstItem="dMN-NV-qIR" firstAttribute="top" secondItem="pCP-CQ-Vcc" secondAttribute="top" id="wYv-L6-o1p"/>
+                                    <constraint firstItem="7jm-xG-5Jf" firstAttribute="centerX" secondItem="oiQ-dU-q5l" secondAttribute="centerX" id="xSb-wN-fq9"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="z9s-IC-Tjg">
+                                <rect key="frame" x="0.0" y="98" width="414" height="744"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="jAC-w4-fqi"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="z9s-IC-Tjg" firstAttribute="trailing" secondItem="jAC-w4-fqi" secondAttribute="trailing" id="2NC-cJ-ZnR"/>
+                            <constraint firstItem="z9s-IC-Tjg" firstAttribute="leading" secondItem="jAC-w4-fqi" secondAttribute="leading" id="4Hm-0J-Kta"/>
+                            <constraint firstItem="oiQ-dU-q5l" firstAttribute="leading" secondItem="jAC-w4-fqi" secondAttribute="leading" id="I69-Df-XQw"/>
+                            <constraint firstAttribute="bottom" secondItem="z9s-IC-Tjg" secondAttribute="bottom" id="KhS-ck-tV3"/>
+                            <constraint firstItem="oiQ-dU-q5l" firstAttribute="top" secondItem="jAC-w4-fqi" secondAttribute="top" id="iaB-ke-RIl"/>
+                            <constraint firstItem="z9s-IC-Tjg" firstAttribute="top" secondItem="oiQ-dU-q5l" secondAttribute="bottom" id="sQL-As-YIu"/>
+                            <constraint firstItem="oiQ-dU-q5l" firstAttribute="trailing" secondItem="jAC-w4-fqi" secondAttribute="trailing" id="tiO-kJ-8oQ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="searchBar" destination="pCP-CQ-Vcc" id="Stp-hM-Zat"/>
+                        <outlet property="tableView" destination="z9s-IC-Tjg" id="3lL-Xf-TJB"/>
+                        <segue destination="3tW-Fr-OTc" kind="unwind" identifier="BackToStartView" unwindAction="renderSelectedPlace:" id="Pen-cz-WLM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GVJ-Fk-mY1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="3tW-Fr-OTc" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="831.88405797101461" y="29.464285714285712"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
+        <image name="star.fill" catalog="system" width="128" height="116"/>
+        <systemColor name="placeholderTextColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

@@ -54,15 +54,14 @@ class PlaceViewController: UIViewController {
 
 extension PlaceViewController: UISearchBarDelegate {
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        print("end")
+        
     }
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        print("start")
+        
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        print("change")
         if searchText.count > 3 {
             dataSourceProvider.searchPlace(for: searchText)
         }
@@ -92,8 +91,6 @@ extension PlaceViewController: DataSourceProviderDelegate {
         if (self.presentedViewController as? UIAlertController) == nil {
             self.present(alert, animated: true, completion: nil)
         }
-        
-        
     }
     
     
